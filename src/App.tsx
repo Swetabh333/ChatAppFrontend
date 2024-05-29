@@ -6,6 +6,7 @@ import Protector from "./components/hooks/Protector";
 import Chat from "./components/Chat";
 
 const App = () => {
+  console.log(import.meta.env.VITE_REACT_BACKEND_URL);
   return (
     <Router>
       <Routes>

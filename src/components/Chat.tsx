@@ -13,6 +13,8 @@ import { ToastContainer, toast } from "react-toastify";
 import Modal from "react-modal";
 
 const Chat: React.FC = () => {
+  console.log(import.meta.env.VITE_REACT_APP_BACKEND_URL);
+
   type Offline = {
     _id: string;
     username: string;
