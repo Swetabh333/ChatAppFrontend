@@ -3,14 +3,13 @@ import "../assets/styles/login.css";
 import { Link, useNavigate } from "react-router-dom";
 import axiosInstance from "../api/axios";
 import { ToastContainer, toast } from "react-toastify";
-import avatar from "../assets/images/avatar.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { setAuthorized, setUser, setId } from "./state/authState/authSlice";
 import { RootState } from "@reduxjs/toolkit/query";
 
 const Login: React.FC = () => {
   const dispatch = useDispatch();
-  const { isAuthorized, redirected, user } = useSelector(
+  const { isAuthorized, redirected } = useSelector(
     (state: RootState) => state.authReducer,
   );
   useEffect(() => {
@@ -48,7 +47,6 @@ const Login: React.FC = () => {
             dispatch(setId(test.data.id));
           }
           navigate("/chat");
-         
         } else {
           toast.error(`${test.data.msg}`);
         }

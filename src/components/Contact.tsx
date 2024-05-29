@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../assets/styles/contact.css";
 import { Dispatch, SetStateAction } from "react";
 
@@ -22,18 +22,18 @@ const Contact: React.FC<props> = ({
   clickHandler,
   onlinePeople,
 }) => {
-  const check = (name:string)=>{
-		if(onlinePeople){
-			for(let i of onlinePeople){
-				if(i.username == name){
-					return true;
-				}
-			}
-			return false;
-		}
-	}
+  const check = (name: string) => {
+    if (onlinePeople) {
+      for (let i of onlinePeople) {
+        if (i.username == name) {
+          return true;
+        }
+      }
+      return false;
+    }
+  };
 
-	const hashCode = (str: string) => {
+  const hashCode = (str: string) => {
     let hash = 0;
     for (let i = 0; i < str.length; i++) {
       hash = str.charCodeAt(i) + ((hash << 5) - hash);

@@ -66,8 +66,10 @@ const Chat: React.FC = () => {
 
     listAll(folderRef).then((res) => {
       res.items.forEach((item) => {
+				//@ts-ignore
         const owner = item._location.path.split("@")[1].split("&")[0];
-        const timestamp = item._location.path.split("&")[1];
+        //@ts-ignore
+				const timestamp = item._location.path.split("&")[1];
         console.log(owner, timestamp);
         getDownloadURL(item).then((url: string) => {
           setImageList((prev: returnImage[]) => [
