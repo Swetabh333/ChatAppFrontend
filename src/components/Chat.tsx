@@ -6,7 +6,7 @@ import Navleft from "./Navleft";
 import { RootState } from "./state/store";
 import axiosInstance from "../api/axios";
 import { imageDb } from "../fireBaseConfig";
-import { uniqBy } from "lodash";
+import uniqBy from "lodash-es/uniqBy";
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
 import { ToastContainer, toast } from "react-toastify";
@@ -66,10 +66,10 @@ const Chat: React.FC = () => {
 
     listAll(folderRef).then((res) => {
       res.items.forEach((item) => {
-				//@ts-ignore
+        //@ts-ignore
         const owner = item._location.path.split("@")[1].split("&")[0];
         //@ts-ignore
-				const timestamp = item._location.path.split("&")[1];
+        const timestamp = item._location.path.split("&")[1];
         console.log(owner, timestamp);
         getDownloadURL(item).then((url: string) => {
           setImageList((prev: returnImage[]) => [
