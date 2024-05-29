@@ -1,0 +1,49 @@
+.sidebar {
+  border-right: 1px solid gray;
+}
+
+.send {
+  border-radius: 50%;
+}
+
+.messages {
+  max-width: 250px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+img {
+  height: 400px;
+  width: 400px;
+  margin: 20px 20px;
+  border-radius: 20px;
+}
+
+.img-cont {
+  width: 430px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  padding: 1px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}

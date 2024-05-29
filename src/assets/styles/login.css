@@ -1,0 +1,39 @@
+form {
+  height: 320px;
+  width: 400px;
+}
+
+.second {
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+input {
+  font-size: 18px;
+  border-bottom: white;
+}
+
+input::placeholder {
+  color: grey;
+  font-weight: 600;
+}
+
+input:hover {
+  border-bottom: 1px #1e90ff solid;
+}
+
+input:focus {
+  border-bottom: 1px #1e90ff solid;
+}
+
+.nav {
+  margin-top: 25px;
+}
+
+button {
+  margin: 20px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
