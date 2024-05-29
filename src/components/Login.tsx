@@ -10,6 +10,7 @@ import { RootState } from "@reduxjs/toolkit/query";
 const Login: React.FC = () => {
   const dispatch = useDispatch();
   const { isAuthorized, redirected } = useSelector(
+    //@ts-ignore
     (state: RootState) => state.authReducer,
   );
   useEffect(() => {
