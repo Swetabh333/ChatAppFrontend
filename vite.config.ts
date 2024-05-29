@@ -9,5 +9,10 @@ export default defineConfig(({ mode }) => {
       "process.env.SOME_KEY": JSON.stringify(env.SOME_KEY),
     },
     plugins: [react()],
+    build: {
+      rollupOptions: {
+        external: ["lodash"],
+      },
+    },
   };
 });
