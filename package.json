@@ -11,10 +11,11 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.1",
-    "@types/lodash": "^4.17.0",
+    "@types/lodash": "^4.17.4",
     "@types/uuid": "^9.0.8",
     "axios": "^1.6.7",
     "firebase": "^10.9.0",
+    "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-modal": "^3.16.1",
