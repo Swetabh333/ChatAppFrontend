@@ -11,10 +11,9 @@ import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
 import { ToastContainer, toast } from "react-toastify";
 import Modal from "react-modal";
+import { useNavigate } from "react-router-dom";
 
 const Chat: React.FC = () => {
-  console.log(import.meta.env.VITE_REACT_APP_BACKEND_URL);
-
   type Offline = {
     _id: string;
     username: string;
@@ -53,7 +52,7 @@ const Chat: React.FC = () => {
     const ws = new WebSocket("ws://localhost:5000");
     setWS(ws);
   };
-
+  const navigate = useNavigate();
   useEffect(() => {
     connectToSocket();
   }, []);
@@ -169,9 +168,18 @@ const Chat: React.FC = () => {
       setInp("");
     }
   };
+
+  const logOut = async (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  ) => {
+    event.preventDefault();
+    await axiosInstance.get("/auth/logout");
+    ws?.close();
+    navigate("/");
+  };
+
   const uniqMessages = uniqBy(messages, "timestamp");
   const uniqImages = uniqBy(imageList, "timestamp");
-  console.log(uniqImages);
   return (
     <>
       <ToastContainer></ToastContainer>
@@ -210,6 +218,14 @@ const Chat: React.FC = () => {
                   />
                 );
               })}
+          <div className="flex justify-center items-center absolute bottom-0">
+            <button
+              className="h-12 w-16 bg-red-500 text-white rounded-md ml-2 mb-2"
+              onClick={logOut}
+            >
+              LogOut
+            </button>
+          </div>
         </div>
         <div className="w-4/5 bg-black">
           {!selectedUser && (
